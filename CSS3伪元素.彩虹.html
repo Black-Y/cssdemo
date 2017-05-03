@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .rainbow{
+            position: relative;
+            margin: 100px auto;
+            width:220px;/*不设置width将无法定位*/
+            height:300px;
+            background: #ddd;
+            border-radius: 5px;
+        }
+        .rainbow::before{
+            content: " ";
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 10%;
+            left: 50%;
+            margin-left: -50px;
+            transform: rotate(45deg);
+            border-radius: 85px 0 0 0;
+            box-shadow: 5px 5px 0 #F44336 inset,
+                        10px 10px 0 #FF9800 inset,
+                        15px 15px 0 #FFEB3B inset,
+                        25px 25px 0 #8BC34A inset,
+                        30px 30px 0 #00BCD4 inset,
+                        35px 35px 0 #2196F3 inset,
+                        40px 40px 0 #9C27B0 inset;
+            animation: rainbow 5s ease-in-out infinite;
+        }
+        .rainbow::after{
+            content: " ";
+            position: absolute;
+            width: 80px;
+            height: 30px;
+            top: 70%;
+            left: 50%;
+            margin-left: -40px;
+            background: rgba(0,0,0,.5);
+            box-shadow: 0 0 12px #2e2e2e;
+            border-radius: 50%;
+            animation: shadow 5s ease-in-out infinite;
+        }
+        @keyframes rainbow{
+         
+            0%{
+                transform: rotate(35deg);
+            }
+            50%{
+                transform: rotate(55deg);
+            }
+            100%{
+                transform: rotate(35deg);
+            }
+        }
+        @keyframes shadow{
+            50%{
+                transform: scale(.8,.8);
+            }
+            100%{
+                transform: scale(1,1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="rainbow"></div>
+</body>
+</html>

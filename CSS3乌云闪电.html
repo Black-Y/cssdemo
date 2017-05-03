@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+       #box{
+           position:absolute;
+           left:50%;
+           top:30%;
+           transform:translate(-50%,-50%);
+           width:220px;
+           height:300px;
+           background-color:#555;
+           border-radius: 5px;	
+       }
+       #cloud{
+           position:absolute;
+           width:50px;
+           height:50px;
+           border-radius:50%;
+           background-color:#252525;
+           left:50%;
+           top:30%;
+           transform:translate(-50%,-50%);
+           box-shadow:-10px -25px 0 4px #252525,
+           -40px 0 0 3px #252525,-10px 20px 0 #252525,20px -15px 0 #252525,27px 15px 0 -5px #252525,45px 0 0 -4px #252525;
+           animation: cloud 5s ease-in-out infinite;
+       }
+      #cloud::before{
+          content:" ";
+          position:absolute;
+          top:150%;
+          left:50%;
+          transform: translate(-50%,-50%);
+          border-left:0px solid transparent;
+          border-right:8px solid transparent;
+          border-top:35px solid yellow;
+          box-shadow:-8px -30px yellow;
+		  transform: rotate(40deg);
+		  transform-origin:center -50px;
+		  animation: thund 2s steps(1,end) infinite;
+      }
+	  #cloud::after{
+	  	  content:" ";
+          position:absolute;
+          top:160px;
+          left: 50%;
+          transform: translate(-50%,-50%);
+          width: 100px;
+          height: 30px;
+          border-radius: 50%;
+          background-color: #333;
+          animation: shadow 5s ease-in-out infinite;
+	  }
+	  @keyframes cloud{
+	  	50%{
+	  		transform: translate(-50%,-30px);
+	  	}
+	  }
+      @keyframes thund {
+      	0%{
+      		transform: rotate(40deg);
+      		opacity: 1;
+      	}
+      	5%{
+      		transform: rotate(-40deg);
+      		opacity: 1;
+      	}
+      	10%{
+      		transform: rotate(0deg);
+      		opacity: 1;
+      	}
+      	15%{
+      		transform: rotate(40deg);
+      		opacity: 0;
+      	}
+      }
+      @keyframes shadow{
+      	50%{
+      		transform: translate(-50%,-50%) scale(.8,.8);
+      		opacity: .6;
+      	}
+      }
+    </style>
+</head>
+<body>
+<div id="box">
+	<div id="cloud"></div>
+</div>
+<!-- 闪电：直角三角形加矩形阴影 -->
+</body>
+</html>
